@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Life Sciences Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #1e3a5f;
+            background: linear-gradient(to bottom, #f0f7ff 0%, #e3f2fd 100%);
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e4a7a 100%);
+            color: white;
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid #4a90e2;
+        }
+
+        .dna-strand {
+            position: absolute;
+            width: 100%;
+            height: 150px;
+            top: 0;
+            left: 0;
+            opacity: 0.1;
+            overflow: hidden;
+        }
+
+        .helix {
+            position: absolute;
+            width: 4px;
+            height: 60px;
+            background: #4a90e2;
+            animation: spiral 8s linear infinite;
+        }
+
+        .helix:nth-child(1) { left: 20%; animation-delay: 0s; }
+        .helix:nth-child(2) { left: 40%; animation-delay: -2s; }
+        .helix:nth-child(3) { left: 60%; animation-delay: -4s; }
+        .helix:nth-child(4) { left: 80%; animation-delay: -6s; }
+
+        @keyframes spiral {
+            0% { transform: translateY(-60px) rotate(0deg); }
+            100% { transform: translateY(200px) rotate(360deg); }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #b3d9ff;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #d4e6f7;
+            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 1rem;
+            background: none;
+            border: none;
+            z-index: 101;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #2c5aa0;
+            margin: 4px 0;
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(9px, 9px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline-block;
+        }
+
+        nav a {
+            display: block;
+            color: #2c5aa0;
+            text-decoration: none;
+            padding: 1.2rem 2rem;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            margin: 2.5rem 0;
+            padding: 3rem;
+            border-radius: 0;
+            border-top: 3px solid #4a90e2;
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.1);
+        }
+
+        h2 {
+            color: #2c5aa0;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #d4e6f7;
+            padding-bottom: 0.8rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .avatar {
+            width: 240px;
+            height: 240px;
+            background: linear-gradient(135deg, #4a90e2 0%, #2c5aa0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid #b3d9ff;
+        }
+
+        .hero-text p {
+            margin-bottom: 1.5rem;
+            color: #2d4a6e;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .code-snippet {
+            background: #1e2a3a;
+            color: #e0e9f5;
+            padding: 2rem;
+            border-radius: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+            border-left: 4px solid #4a90e2;
+            box-shadow: 0 4px 12px rgba(30, 42, 58, 0.3);
+        }
+
+        .code-blue { color: #4a90e2; }
+        .code-cyan { color: #64b5f6; }
+        .code-green { color: #81c784; }
+        .code-gray { color: #90a4ae; }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border: 2px solid #d4e6f7;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
+        }
+
+        .card:hover {
+            border-color: #4a90e2;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.2);
+        }
+
+        .card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-content {
+            color: #2d4a6e;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-box {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #d4e6f7;
+            padding: 1.5rem;
+        }
+
+        .skill-box h4 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 0.5rem;
+        }
+
+        .skill-box ul {
+            list-style: none;
+        }
+
+        .skill-box li {
+            padding: 0.4rem 0;
+            color: #2d4a6e;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .skill-box li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-card {
+            aspect-ratio: 4/3;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #d4e6f7;
+            transition: all 0.3s;
+        }
+
+        .gallery-card:hover {
+            border-color: #4a90e2;
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.2);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 90, 160, 0.95);
+            color: white;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-card:hover .gallery-label {
+            transform: translateY(0);
+        }
+
+        .writing-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid #4a90e2;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
+        }
+
+        .writing-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .writing-tag {
+            background: #2c5aa0;
+            color: white;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .writing-date {
+            color: #6b8fb8;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .writing-title {
+            font-size: 1.5rem;
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .writing-text {
+            color: #2d4a6e;
+            line-height: 1.9;
+            white-space: pre-wrap;
+            font-style: italic;
+        }
+
+        .cv-banner {
+            background: linear-gradient(135deg, #4a90e2 0%, #2c5aa0 100%);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: none;
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
+        }
+
+        .cv-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .cv-banner p {
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cv-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cv-btn {
+            background: white;
+            color: #2c5aa0;
+            border: 2px solid white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cv-btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c5aa0;
+            border: 2px solid #4a90e2;
+            padding: 1.5rem;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .contact-btn:hover {
+            background: #2c5aa0;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(44, 90, 160, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+        }
+        .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-btn {
+    background: #f8f9fa;
+    color: #1e4a7a;
+    border: 2px solid #1e4a7a;
+    padding: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    min-height: 150px;
+}
+
+.contact-btn:hover {
+    background: #1e4a7a;
+    color: white;
+}
+
+.contact-btn:hover svg {
+    fill: white;
+}
+
+.contact-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon svg {
+    width: 48px;
+    height: 48px;
+    transition: fill 0.3s;
+}
+
+.contact-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+}
+
+.contact-btn span:last-child {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+        footer {
+            background: linear-gradient(135deg, #1e4a7a 0%, #2c5aa0 100%);
+            color: #b3d9ff;
+            text-align: center;
+            padding: 3rem;
+            border-top: 3px solid #4a90e2;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 0.95rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-container {
+                padding: 0;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 75%;
+                max-width: 320px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                padding-top: 80px;
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                margin: 0;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav li {
+                display: block;
+                width: 100%;
+            }
+
+            nav a {
+                padding: 1.5rem 2rem;
+                text-align: left;
+                border-bottom: 1px solid #e3f2fd;
+                width: 100%;
+            }
+
+            nav a:hover {
+                background: #e3f2fd;
+                color: #2c5aa0;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .avatar {
+                margin: 0 auto;
+                width: 180px;
+                height: 180px;
+                font-size: 4rem;
+            }
+
+            .hero-text p {
+                text-align: left;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 2rem 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .code-snippet {
+                font-size: 0.8rem;
+                padding: 1.5rem;
+            }
+
+            .cv-banner {
+                padding: 2rem 1.5rem;
+            }
+
+            .cv-banner h3 {
+                font-size: 1.4rem;
+            }
+
+            .cv-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cv-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 3rem 1rem 2rem;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            .tagline {
+                font-size: 0.85rem;
+            }
+
+            .avatar {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+
+            .gallery-card {
+                font-size: 2.5rem;
+            }
+
+            .writing-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="dna-strand">
+            <div class="helix"></div>
+            <div class="helix"></div>
+            <div class="helix"></div>
+            <div class="helix"></div>
+        </div>
+        <h1>Anup Parajuli</h1>
+        <p class="tagline">Undergraduate Student @ Soka University of America</p>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#academia">Academia</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h2>About Me</h2>
+            <div class="hero-grid">
+                <div class="avatar"><img src="photos/main.png" alt="Portrait of Anup Parajuli"></div>
+                <div class="hero-text">
+                    <p>My name is Anup Parajuli. I come from Nepal. I am a fourth-year student at Soka University of America pursuing Life Sciences. My academic interests lie at the intersection of biochemistry, molecular biology, structural biology, and computational biology. I enjoy research that brings together coding, experimentation, and quantitative analysis to explore how protein structure influences function and disease.</p>
+                    <p>In my free time, I find joy in simple and creative things: walking by the beach, cooking, playing guitar, traveling, and exploring museums and art exhibits. I also enjoy writing poems, listening to music, and solving puzzles.</p>
+                    <p>Here is my compact CV if that may interest you. Feel free to email me at aparajuli at soka dot edu to chat more.</p> 
+                </div>
+            </div>
+            <div class="cv-banner">
+                <h3>CURRICULUM VITAE</h3>
+                <p>Comprehensive overview of my academic journey, research contributions, and scholarly activities.</p>
+                <div class="cv-buttons">
+                    <a href="cv.pdf" class="cv-btn" target="_blank">View CV</a>
+                </div>
+            </div>
+            <div class="code-snippet">
+<span class="code-gray"># Research Philosophy</span>
+<span class="code-blue">class</span> <span class="code-cyan">Researcher</span>:
+    <span class="code-blue">def</span> <span class="code-green">__init__</span>(self):
+        self.motivation = <span class="code-green">"Inadequate medical care in Nepal"</span>
+        self.focus = <span class="code-green">"biochemistry, molecular biology, structural biology, and computational biology"</span>
+        self.approach = [<span class="code-green">"computational"</span>, <span class="code-green">"experimental"</span>, <span class="code-green">"analytical"</span>]
+    
+    <span class="code-blue">def</span> <span class="code-green">mission</span>(self):
+        self.goal = [<span class="code-green">"Understand protein structure–function relationships", "affordable healthcare"</span>]
+        <span class="code-blue">return</span> self.compassion + self.curiosity + self.code
+            </div>
+        </section>
+
+        <section id="academia">
+            <h2>Academic Profile</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Education</h3>
+                    <div class="card-content">
+                        <strong>Life Sciences</strong><br>
+                        <strong>B.A. Liberal Arts</strong><br>
+                        Soka University of America<br>
+                        Aliso Viejo, CA, U.S.A<br>
+                        Expected: May 2026<br><br>
+                        
+                        <strong>Coursework:</strong>
+                        <p style="color:#5db1cb;">
+                            Genetics, Genetic Engineering, Cell Biology Project-Based Lab, Biochemistry, Bioinformatics, Biostatistics, Microbiology, Organic Chemistry I &amp; II, Differential Calculus, Discrete Mathematics, Introduction to Computer Science, GIS, Physics.
+                            <em>Spring 2026:</em> Linear Algebra, Biochemistry Project-Based Lab, 3D Printing in Ceramics.
+                        </p><br>
+                        <strong>Study Abroad</strong><br>
+                        University of Barcelona<br>
+                        Barcelona, Spain<br>
+                        01/2025 - 05/2025<br><br>
+                        
+                        <strong>Coursework:</strong>
+                        <p style="color:#5db1cb;">
+                            Spanish Language Courses
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Research</h3>
+                    <div class="card-content">
+                        <strong>Tandem Repeat Reflectin Protein Synthesis &amp; Characterization</strong><br>
+                        <em>Levenson Lab, Soka University of America</em><br>
+                        06/2024 - Present<br>
+                        <em style="color:#5db1cb;">
+                            - Synthesized tandem repeat reflectin constructs using a novel optimized method.<br>
+                            - Mapped the conditions to determine the driving forces for tunable reflectin assembly.
+                        </em>
+                        <br><br>
+
+                        <strong><em>In Silico</em> Structural Analysis of Cancer-Associated Nit1 Mutations</strong><br>
+                        <em>Undergraduate Senior Thesis, Soka University of America</em><br>
+                        09/2025 - Present<br>
+                        <em style="color:#5db1cb;">
+                            - Assessed NIT1 mutations using in silico functional impact scoring tools (CHASMplus, Mutation Assessor, PhastCons, PROVEAN) to predict pathogenicity.<br>
+                            - Developed a computational workflow to predict structural effects of Nit1 mutations linked to tumor suppression, integrating COSMIC mutation data with ChimeraX-based structural modeling.
+                        </em>
+                        <br><br>
+                        Interested in knowing more about my research? Let's chat (aparajuli at soka dot edu).
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Leadership</h3>
+                    <div class="card-content">
+                        <strong>Co-President | First Gen Affinity Group</strong><br>
+                        Soka University of America<br>
+                        2024 - Present<br>
+                        <em style="color:#5db1cb;">- Organized financial workshops and one-to-one mentorship sessions.</em><br><br>
+
+                        <strong>Secretary | Code Soka</strong><br>
+                        Soka University of America<br>
+                        2022 - Present<br>
+                        <em style="color:#5db1cb;">
+                            <div class="code-snippet">
+<span class="code-blue">class</span> <span class="code-cyan">CodeSoka</span>:
+    <span class="code-blue">def</span> <span class="code-green">__init__</span>(self):
+        self.role = <span class="code-green">"Organized Python coding workshops"</span>
+        self.project = <span class="code-green">"Make Games"</span>
+        self.demo = <span class="code-green"><a style="color:#d1c32d;" href="https://anupparajuli01.github.io/Biology_Hanging_Man/BiologyHangingMan.html">Play Game (web-based)</a></span>
+        <span class="code-blue">return</span> self.passion + self.satisfaction + self.love_coding
+                            </div>
+                        </em>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 3rem;">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <h4>Laboratory Techniques</h4>
+                    <ul>
+                        <li>Bacterial culture</li>
+                        <li>Tissue culture</li>
+                        <li>Protein purification (FPLC, HPLC)</li>
+                        <li>Confocal microscopy</li>
+                        <li>Dynamic light scattering (DLS)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-box">
+                    <h4>Computational Biology</h4>
+                    <ul>
+                        <li>PyMOL, ChimeraX</li>
+                        <li>AlphaFold, SWISS-MODEL</li>
+                        <li>Sequence alignment</li>
+                        <li>Protein-ligand docking</li>
+                        <li>MEGA 11</li>
+                    </ul>
+                </div>
+
+                <div class="skill-box">
+                    <h4>Computer Skills</h4>
+                    <ul>
+                        <li>Python (Pandas, Matplotlib, NumPy, Tkinter, NetworkX)</li>
+                        <li>R (dplyr, ggplot2)</li>
+                        <li>Linux command shell</li>
+                        <li>Adobe Illustrator</li>
+                        <li>Microsoft Excel</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey">
+            <h2>My Journey</h2>
+            <p style="color: #2d4a6e; margin-bottom: 2rem;">A visual narrative of moments and places that have shaped my path—from the mountains of Nepal to the laboratories of California.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <div>🏔️</div>
+                    <div class="gallery-label">Growing up at Chhahari Organization Nepal</div>
+                </div>
+                <div class="gallery-card">
+                    <div>🔬</div>
+                    <div class="gallery-label">Laboratory research and discovery</div>
+                </div>
+                <div class="gallery-card">
+                    <div>🎓</div>
+                    <div class="gallery-label">Soka University academic life</div>
+                </div>
+                <div class="gallery-card">
+                    <div>🌊</div>
+                    <div class="gallery-label">Finding peace by the ocean</div>
+                </div>
+                <div class="gallery-card">
+                    <div>👥</div>
+                    <div class="gallery-label">Building community connections</div>
+                </div>
+                <div class="gallery-card">
+                    <div>✈️</div>
+                    <div class="gallery-label">Exploring new horizons</div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 4rem;">Creative Canvas</h2>
+            <p style="color: #4a90e2; text-align: center; margin-bottom: 2rem; font-style: italic;">"Have you ever wandered beyond the edges of this ordinary world?"</p>
+
+            <div class="writing-card">
+                <div class="writing-meta">
+                    <span class="writing-tag">POEM</span>
+                    <span class="writing-date">2080-12-05 (Nepali Date)</span>
+                </div>
+                <div class="writing-title">मलाई पनि म तिम्रै हुन देउ</div>
+                <div class="writing-text">फुलेको फुल फुल्न देउ
+भुलेको मन भुल्न देउ
+तिम्रै आसु पनि मेरैझैँ लाग्छ
+मलाई पनि म तिम्रै हुन देउ
+
+मिलेरै बनाउला खरको छानो
+असल सोच ठुलो इष्र्या सानो
+हासेर बाचौ मिलेर बसौ
+कहिले नटुट्ने डोरीले कसौ
+
+दुःखमा साथ सुखमा हासो
+नझारौ कहिल्यै कसैको आँसु
+पुकारौ सधै भलो र चित्त 
+बनेर सधै असल मन–मित्र
+
+मलाई तिमी, तिमीलाई म 
+साटौ यो जिन्दगानी के भन्छौ त ?
+हात र पैताला सुनैका बाला 
+लगाइदेउन मलाई सोयम्बरे माला
+
+अनुप पराजुली
+२०८०–१२–०५</div>
+            </div>
+
+            <div class="writing-card">
+                <div class="writing-meta">
+                    <span class="writing-tag">POEM</span>
+                    <span class="writing-date">2079-03-09 (Nepali Date)</span>
+                </div>
+                <div class="writing-title">गुरु</div>
+                <div class="writing-text">
+छर्याै तिमीले उज्यालो आफूलाई जलाई
+आफ्नो केहि ख्याल नगरि ज्ञान दियौ हामीलाई
+सिकायौ हामीलाई चलाउन कलम
+लगायौ केहिपनि नजान्नेको दिमागमा मलम
+
+गुरु तिमि हाँगा
+हौ हामी त्यसको पात
+हाम्रो सम्बन्ध रहेको छ
+दिन र रत
+
+ज्ञानको भण्डार तिमी
+ज्ञान बाँड्नमै आफ्नो जिबन समर्पित गर्छाै
+कहिले माया कहिले घृणा
+यसै बिच गुरु र शिष्यको संबन्ध जन्माउछौ
+
+हजारौ वृक्षको एक गुरु हौ तिमी
+त्यस वृक्षको सुन्दर फुल हौ हामी
+कलिलाती जिन्दगीमा जब ती हाम्रा कलिला हातहरुले पुस्तक समाए
+तिम्रो इसारामा ती हातहरुले पुस्तक समाउदै रमाए
+
+क ख ग घ सिकाउदै तोतेबोलि फुटायौ
+रगतको नाता नभएपनि दोस्रो आमाको रुपमा आयौ
+हाम्रो हरेक जिवनका पाइलाहरुमा सफल्ताको दियो बली दियौ
+कहिले नटुटि हाम्रो जिवनमा ज्ञानको ज्योति छरिदियौ
+
+भावनाको सागरमा डुबी
+सगरमाथाको शिखरमा चुमि
+गर्दछु तिम्रो सम्मान गुरु
+तिम्रो ज्ञानले हुन्छ हाम्रो जीवनमा सफलताको  सुरु
+
+अनुप पराजुली
+२०७९–०३–०९</div>
+            </div>
+            <div class="writing-card">
+                <div class="writing-meta">
+                    <span class="writing-tag">POEM</span>
+                    <span class="writing-date">2080-04-22 (Nepali Date)</span>
+                </div>
+                <div class="writing-title">तपाईंलाई रातो कत्तीको मन पर्छ ? </div>
+                <div class="writing-text">
+मलाई रातो मन पर्छ तर त्येही रातो को डर लाग्छ 
+त्यो रातो जस्ले सिउधो सजाउछ 
+त्यो रातो जस्ले बिजय जनाउछ
+हो, अनि म त्येहि रातो को कुरा गरीरहेछु
+त्यो रातो जस्ले छाउ गोठ बनाउछ 
+अनि, त्यहि रातो जस्ले खतरा जनाउछ 
+
+हो म त्येहि रातो को कुरा गरिरहेछु
+त्यो रातो जस्ले दिन जनाउछ 
+त्यो रातो जस्ले मुर्ती सजाउछ
+हो, अनि म त्येहि रातो को कुरा गरीरहेछु 
+त्यो रातो जस्ले तर्बार सजाउछ
+अनि, त्यहि रातो जस्ले संसार जलाउछ
+
+तपाईंलाई रातो कत्तीको मन पर्छ ?
+
+अनुप पराजुली
+२०८०–०४–२२
+
+</div>
+
+        </section>
+
+        <section id="contact">
+    <h2>Connect</h2>
+    <p style="color: #2d4a6e; text-align: center; margin-bottom: 2rem;">Let's Connect</p>
+    
+    <div class="contact-grid">
+        <a href="mailto:anupparajulichhahari1@gmail.com" class="contact-btn">
+            <span class="contact-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     width="48" 
+                     height="48" 
+                     viewBox="0 -960 960 960" 
+                     fill="#1e4a7a">
+                    <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/>
+                </svg>
+            </span>
+            <span>Email</span>
+        </a>
+        
+        <a href="https://www.linkedin.com/in/anupparajuli/" class="contact-btn" target="_blank">
+            <span class="contact-icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAbFBMVEUAfrv///8AfLoAcLXE2uopgbzI2OnR4u5GjsI0g73o8fcAdbcAbbPN3+30+PuQt9ebwNzh6/S80+ZalsZ9rtISgr0AZbBdnso0jMKkxN4AarJvpc6MsdTZ5/FpncqwzeN/qdBbkcRLlsd3oswcWK3cAAAFJElEQVR4nO2dbXOqOhCAkwUKJsqrFJUi1v7//3iDHE9rlQRPwshy9/nQmc7IwDNhIdkkC+MXEmCIgaS3YJe/KeCWgfRbJl+hdlE2q/wqkxXy1VdjiyyyXiZO0LsomyS+yIS4A6YHIOxk4u0CGkY1zTZWMplcQMOoppGZkkm9V1+HG7xUyZSLaBjVNCVn4v3VV+GKd8Hyhdxl6j7L2RJeMj0yYdVCQkYFTcV2y5HZsfLV1+COBakQxOyArqMNbAlPP+URBKvVKoCOV1+NFZJFxyRvhMg27bbYYdaR7LgX/JtNEqG1kcU+5rc0SYmyTwewbfg9/hlhdxtY8rtZerIanQ2w9LEL5+KIzEbdYwMqnU2EK25kMezCeYhKBoJMJ8Pb9auv8AlkonXhosbTNiCHgv9KjieDKDXR35NVaJrmoI+YDjzJHWl04S2WgbeszDLhGUnQeKlZRhyR3GdebpbhJyQy6w3JzJO1vyAZrzW7xF9IZMwdgG4NAZJHM+zMMj6aWYSDqZ/J+R5NmsYcNDGW+Ff3WbScu0w9AkxvmhRNw6im+dS7hJjS6ADacXOMaNTMulVpuhutPbz6+p5Dfg6PNn1MuZkL8vgo03xxQZbQ7JDF28N4aT1Ewf8XuUrFnUu4xZNkugHg+GuCpkkjpC5dMpAdE//qI9oT3omzDgBYRUW93W6rzyjAPKXZA9+8+lIIgiAI4ilAep637vA8KRG/yEAe5Hm7z/2N4i3fJ/VufcDZ8/MOUdrE8Y9+rPpHhGl0cD/CuLT/MA9SAPojbg+ANWuH8oxxWx7cZhggSH0d+7vTwU53RP4zAwLyrJ9myCq34RPoT/d2N3KGKNT8/sf2NoDCPGOS1YFDm6lkAKK7BXkP8St3jTORDMBpKE3yG5E6a5xpZICNa5Ye39VKsElkJBszv/hN42hT7BQyMhgz8fsTcXZiM4GMDHS/GLBxcqe5lwH2vIt6RrtYeexexjjl85jQQW/NucxhzBKWRzjYteha5uP0xDP5BmE/e+papv2XgOnZWE+fupa5z8CPJ52ZjBWN7Tq9OcnwxLLPOSuZJlqQDK+XJOMHC5LhdvVxZiZjV7tkZjJ2e1xmJsMXJWP13pxaJhaZEE/0Pa3qykwp07Tpx6k+1vUp2Y8d5IQ2y3Wmk8lPRSmvQPQ1bpwT2xSWmUomrFY3qVeQwdeoTNoMWyYN7vqMIKMxCSibQc00MvXD6QrYjbCx2RY2iczQPmI54libPsAUMvfzIFc8c4bA5tk8gUwz3FsEaXymtfOS0Q1KZGVKEthknNzL6MtcGlOENotc3ct8aCO4q+ynZTMnmUa/3wYYJpnW8NJbGxp2VjKm7cOmvaFzkslMe1RljUcmNPWtoMQj4xunWQ54ZMzvvHf942xOMubeiKEGwZxk9kYZw7N5RjIjSkMb9iDjkvEWJaMfBZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZAMyZDM/1amFRri+2XKEPmaAzLzljFPe0ZhsxkIum/oDvOg2ID+iBG1yp4+4zM6Wp4+YooTEgTxr2D5UOEISobo0z4GYMeq5chUDM/XPU3IhDkoTzcTvJwJm6oUs+JdMF4uJGig5MyulMuM8FIlk+GsJ/4bkJmSie1KU82FbvM94zxcQscaQI1wWTeWXUDUeEl8keGZo3rIL0QW3cbbTsZQ1wIBsLqkQS4yPMUdNgB9SYRehie4Zf58jvE/ha130LWQ03MAAAAASUVORK5CYII=" 
+                     alt="LinkedIn">
+            </span>
+            <span>LinkedIn</span>
+        </a>
+        
+    </div>
+</section>
+
+    <footer>
+        <p>&copy; 2025 Anup Parajuli • All right reserved</p>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
